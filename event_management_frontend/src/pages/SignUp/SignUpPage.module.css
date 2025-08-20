@@ -17,11 +17,11 @@
 
 .heroText { position: absolute; left: 40px; top: 176px; width: 619px; margin: 0; font-family: var(--font-montserrat); font-size: var(--typo-148-size); font-weight: var(--typo-148-weight); line-height: var(--typo-148-line); color: var(--color-ffffff); }
 
-.rightPane { position: relative; background: var(--color-ffffff); height: 100%; padding: 101px 24px 40px 142px; }
+.rightPane { position: relative; background: var(--color-ffffff); height: 100%; padding: 101px 24px 40px 142px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; }
 
 .paneHeader { position: relative; width: 100%; padding-right: 60px; }
 .paneTitle { margin: 0 0 20px 0; font-family: var(--font-montserrat); font-size: var(--typo-159-size); font-weight: var(--typo-159-weight); line-height: var(--typo-159-line); color: var(--typo-159-color); }
-.btnClose { position: absolute; right: 60px; top: -40px; width: 54px; height: 54px; border: 3px solid var(--color-909090); border-radius: 50%; background: transparent; color: var(--color-909090); font-size: 0; line-height: 1; display: inline-flex; align-items: center; justify-content: center; }
+.btnClose { position: absolute; right: 60px; top: -40px; width: 54px; height: 54px; border: 3px solid var(--color-909090); border-radius: 50%; background: transparent; color: var(--color-909090); font-size: 0; line-height: 1; display: inline-flex; align-items: center; justify-content: center; will-change: transform; }
 
 .authActions { display: grid; grid-template-columns: repeat(2, 346px); gap: 58px; margin-top: 19px; max-width: 750px; }
 .socialBtn { height: 74px; border: 1px solid var(--color-a3a3a3); border-radius: var(--radius-10); background: var(--color-ffffff); padding: 0 24px; gap: 20px; justify-content: flex-start; display: inline-flex; align-items: center; }

@@ -1,16 +1,17 @@
 .backdrop {
   position: fixed;
   inset: 0;
-  /* Solid/semi-transparent dark overlay, matching Figma darkness */
+  /* Slightly darker overlay to match perception from Figma reference */
   background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000; /* above header */
-
-  /* Transitions for fade in/out */
+  z-index: 2000; /* ensure above sticky header */
+  /* fade in/out */
   opacity: 0;
   transition: opacity 220ms ease;
+  /* prevent accidental page scroll jiggle behind backdrop */
+  will-change: opacity;
 }
 
 .backdropOpen {
@@ -18,21 +19,26 @@
 }
 
 .dialog {
-  width: min(90vw, 1620px); /* wider container per Figma intent */
+  width: min(90vw, 1620px); /* wide two-pane composition */
   max-height: 92vh;
-  overflow: auto;
+  overflow: auto; /* allow internal scroll if needed */
   border-radius: 12px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-
-  /* Ensure modal panel is solid so nothing underneath shows through */
+  /* soft yet pronounced shadow similar to Figma */
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35), 0 2px 12px rgba(0, 0, 0, 0.18);
   background: #ffffff;
 
-  /* Enter/exit animation (scale + fade) */
+  /* graceful enter/exit */
   opacity: 0;
   transform: scale(0.98);
   transition:
     opacity 220ms ease,
     transform 220ms ease;
+  will-change: transform, opacity;
+}
+
+/* clamp background bleed on rounded corners while scrolling */
+.dialog {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .dialogOpen {

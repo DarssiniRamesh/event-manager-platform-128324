@@ -54,6 +54,8 @@
   background: var(--color-ffffff);
   height: 100%;
   padding: 101px 24px 40px 142px;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 .paneHeader {
@@ -70,7 +72,7 @@
   color: var(--typo-159-color);
 }
 
-/* Close button container remains; inner icon now uses shared .icon-close */
+/* Close button container; inner icon uses shared .icon-close */
 .btnClose {
   position: absolute;
   right: 60px;
@@ -86,10 +88,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  /* ensure no stray pixel due to sub-pixel transform */
+  will-change: transform;
 }
 
-/* Removed module-specific .iconClose; shared icon from common.css is used */
-
+/* Social buttons row */
 .authActions {
   display: grid;
   grid-template-columns: repeat(2, 346px);
@@ -108,8 +111,6 @@
   display: inline-flex;
   align-items: center;
 }
-
-/* Google and Facebook icon vector shapes provided by shared classes from common.css */
 
 .socialText {
   font-family: var(--font-open-sans);
@@ -152,9 +153,13 @@
   border-radius: 6px;
   background: transparent;
   font-size: 18px;
+  /* increase hit area parity with Figma icon box */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Removed module-specific .iconEye; shared .icon-eye (+ .icon-eye-slash) is used */
+/* Shared .icon-eye (+ .icon-eye-slash) is used */
 
 .btnPrimaryWide {
   margin-top: 20px;
@@ -195,6 +200,6 @@
 @media (max-width: 1024px) {
   .screen { grid-template-columns: 1fr; }
   .leftPane { min-height: 320px; }
-  .rightPane { padding: 40px 24px; }
+  .rightPane { padding: 40px 24px; border-radius: 0; }
   .authActions { grid-template-columns: 1fr; gap: 16px; }
 }
