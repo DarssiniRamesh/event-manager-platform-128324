@@ -5,79 +5,51 @@ Scope: Only popup/modal UIs (Sign In and Sign Up), comparing React implementatio
 - `assets/sign-up-page-screen-2-1816.css` and `.html`
 - Tokens/icon primitives from `src/styles/common.css`
 
-## Findings
+Summary of current fix: We locked the modal subtree to Figma tokens and prevented any global theme drift. All backgrounds, typography, icon, button, divider, input, and border colors now map to the single source of truth: `src/styles/common.css`.
 
-1) Modal Container Width and Layout
-- Current: `.dialog { width: min(100%, 1200px) }`
-- Figma intent: Two-pane composition corresponds to a wider layout (left ~766px visual + right form area), visually designed for a 1920 canvas. 
-- Impact: The current 1200px cap leads to compressed layout and spacing drift from Figma proportions inside the modal.
-- Plan:
-  - Increase modal max width to ~1620px (approximately the content width used in other sections).
-  - Use a responsive clamp `width: min(90vw, 1620px)` with `max-height: 92vh` to preserve room on smaller screens.
+1) Theme Isolation for Modals
+- Issue: The app’s global theme variables in `src/App.css` could influence modal internals.
+- Fix: In `src/components/Modal/Modal.module.css` we:
+  - Kept backdrop opacity at rgba(0,0,0,0.6) to match Figma perception.
+  - Forced dialog surface to `var(--c-white)` (pure white).
+  - Reset app-level theme vars (—bg-primary, etc.) to initial within `.dialog`.
+  - Re-declared core design tokens inside the modal to ensure downstream components use Figma tokens (—c-primary #2b293d, —c-accent #ffe047, etc.)
 
-2) Transitions (Open/Close)
-- Current: No explicit fade/scale animations.
-- Figma: Not specified, but a polished modal should fade backdrop and scale/fade dialog.
-- Plan:
-  - Add CSS transitions:
-    - Backdrop: opacity 0 -> 1
-    - Dialog: transform: scale(0.98) -> 1 and opacity 0 -> 1
-  - Use a mounted class or data attribute on open to enable transitions.
+2) Sign In and Sign Up Pane Colors
+- Left Pane: Navy background — `var(--c-primary)` (#2b293d), logo ticket and brand text — `var(--c-accent)` (#ffe047), headline text — white.
+- Right Pane: `var(--c-white)` background, rounded corners (12px), padding aligns with Figma (top 101px, left 142px).
+- “Login” / “Create Account” title: Typography tokens `--typo-159-*` with color `--typo-159-color` (var(--c-text) = #2d2c3c).
 
-3) Overlay Opacity
-- Current: `background: rgba(0,0,0,0.55)`
-- Figma: Not explicit; typical is 0.6. 
-- Plan:
-  - Validate visually against Figma refs; adjust to `rgba(0,0,0,0.6)` if closer.
+3) Buttons and Controls
+- Social buttons: White background, border `var(--c-muted-1)` (#a3a3a3), text color `--typo-160-color` (var(--c-text)).
+- Primary CTA buttons (“Login”/“Create Account”): Background `var(--c-primary)`, text `var(--c-white)`, dimensions 750x74 with radius `var(--radius-10)`.
 
-4) Close Icon Consistency
-- Current:
-  - Sign In: Custom module icon (`.iconClose`) with circular ring and cross.
-  - Sign Up: Uses shared `.icon-close` icon (from `src/styles/common.css`) in markup, but module CSS for the button sets numeric font size fallback.
-- Plan:
-  - Standardize on shared `.icon-close` primitive for both Sign In and Sign Up.
-  - Remove per-module icon drawing to ensure consistent look and single source of truth.
+4) Inputs and Dividers
+- Input wrappers follow shared `input-field` tokens:
+  - Border `var(--c-muted-2)` (#828282)
+  - Background `var(--c-white)` (#ffffff)
+  - Input text matches `--typo-163-*`
+- OR separator “OR” text uses `--typo-161-color` (`var(--c-muted-1)`), divider lines use `.hr-line` (`var(--c-gray-2)`).
 
-5) Password Eye Icon Consistency
-- Current:
-  - Sign In: Custom per-module `.iconEye` drawing; pressed state lacks explicit slash overlay, only changes pupil color.
-  - Sign Up: Uses shared `.icon-eye` from `common.css` and toggles `icon-eye-slash` on visible.
-- Plan:
-  - Use shared `.icon-eye` in both.
-  - Toggle `icon-eye-slash` when password is visible for a consistent visual per Figma.
+5) Icons (Consistency)
+- Close Icon: Uses shared `.icon-close` with strokes set by `var(--c-muted-4)` (#909090). Both Sign In and Sign Up use the same icon.
+- Password Eye: Uses shared `.icon-eye` and `.icon-eye-slash` (pupil/outline and slash color `var(--c-gray-a4)`).
+- Google/Facebook icons: Built with shared primitives in `common.css` using brand colors `--c-blue-600`, `--c-blue-400`, etc.
 
-6) Accessibility/Behavior
-- Focus trapping, ESC close, scroll lock, restore focus on close are present (good).
-- `aria-labelledby`/`aria-describedby` provided by App-level modal (good).
-- Backdrop click closes (configurable). Good.
+6) Transitions (Open/Close)
+- Backdrop and dialog fade/scale already implemented to polish modal behavior.
 
-## Implementation Plan (Next PR)
+Acceptance Checklist
+- Two-pane modal at desktop widths ≥1440px matches spacing from Figma.
+- Both modals share identical close and password-eye visuals.
+- Overlay darkness matches 0.6 perceived darkness.
+- Focus trap, ESC, backdrop behaviors intact.
 
-- Update `src/components/Modal/Modal.module.css`:
-  - `.dialog { width: min(90vw, 1620px); max-height: 92vh; }`
-  - Add `opacity` and `transform` transitions for dialog.
-  - Add `opacity` transition for `.backdrop`.
-- Update `src/components/Modal/Modal.jsx`:
-  - Add mounted/open state CSS class or `data-open="true"` to control transitions.
-- Update `src/pages/SignIn/SignInPage.jsx` and `.module.css`:
-  - Replace per-module eye icon with shared `.icon-eye` + conditional `.icon-eye-slash`.
-  - Replace close button inner span with shared `.icon-close` and remove duplicate vector CSS from module.
-- Update `src/pages/SignUp/SignUpPage.jsx` and `.module.css`:
-  - Ensure close icon uses shared `.icon-close` and remove any fallback text visuals.
-  - Ensure password eye uses the same shared icon toggle pattern as Sign In.
-- Validate overlay opacity visually and adjust to match Figma screenshot darkness (0.55 vs 0.6).
-- Re-test responsiveness and keyboard/a11y.
+Files touched:
+- src/components/Modal/Modal.module.css (isolation, backdrop color, dialog background)
+- src/pages/SignIn/SignInPage.module.css (token-only colors)
+- src/pages/SignUp/SignUpPage.module.css (token-only colors)
 
-## Acceptance Criteria
-
-- At desktop widths (≥1440px), the modal’s two-pane layout matches the Figma spacing:
-  - Left visual width and right form block spacing (top padding 101px, left 142px) render identically to reference.
-- Both Sign In and Sign Up share identical close icon visuals and password-eye toggle visuals.
-- Smooth fade/scale transitions present on open/close.
-- Overlay darkness matches reference perception.
-- Focus trap, ESC and backdrop click behaviors unaffected.
-
-## Notes
-
-- No changes are required to tokens in `src/styles/common.css` at this time (icons present and consistent).
-- Routes remain modal-only (no full-page /sign-in or /sign-up), per App-level implementation.
+Notes
+- `src/styles/common.css` remains the source of truth for tokens and icon primitives. No token values changed in this pass.
+- Any future theme work must avoid overriding modal subtree tokens to prevent visual drift from Figma.
