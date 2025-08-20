@@ -1,0 +1,23 @@
+.header { position: sticky; top: 0; z-index: 100; width: 100%; background: var(--color-2b293d); color: var(--color-ffffff); }
+.inner { max-width: 1200px; margin: 0 auto; padding: 11px 24px; height: 75px; display: flex; align-items: center; justify-content: space-between; box-sizing: border-box; }
+.brand { display: inline-flex; align-items: center; gap: 16px; height: 53.667px; text-decoration: none; color: inherit; }
+.logoTicket { width: 70.961px; height: 53.667px; background: var(--color-ffe047); border-radius: 6px; flex-shrink: 0; }
+.logoText { font-family: var(--font-lalezar); font-size: 42px; line-height: 65.814px; color: var(--color-ffe047); }
+
+.nav { position: relative; display: flex; align-items: center; gap: 18px; }
+.link { font-family: var(--font-montserrat); font-size: 20px; line-height: 29.256px; color: var(--color-ffffff); text-decoration: none; padding: 10px 12px; border-radius: 6px; }
+.active { font-weight: 600; }
+.underline { position: absolute; bottom: 6px; left: 12px; width: 76px; height: 4px; background: var(--color-ffe047); border-radius: 3px; display: none; }
+.nav:has(.active) .underline { display: block; }
+
+.actions { display: flex; gap: 12px; }
+.btn { height: 42px; padding: 0 14px; font-family: var(--font-montserrat); font-size: 16px; line-height: 24px; color: var(--color-ffffff); background: transparent; border: 1px solid transparent; border-radius: 8px; cursor: pointer; }
+.btnPrimary { background: var(--color-ffe047); color: var(--color-2b293d); border: none; border-radius: 10px; }
+.btnLink { color: var(--color-ffffff); text-decoration: none; display: inline-flex; align-items: center; }
+
+@media (max-width: 900px) {
+  .inner { padding: 8px 16px; height: auto; gap: 12px; }
+  .logoTicket { width: 48px; height: 36px; }
+  .logoText { font-size: 28px; line-height: 36px; }
+  .nav { display: none; }
+}

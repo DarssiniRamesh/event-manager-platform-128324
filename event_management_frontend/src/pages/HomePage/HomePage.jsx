@@ -40,28 +40,6 @@ export default function HomePage() {
 
   return (
     <main className={styles.homePage} role="main" aria-label="Home Page">
-      <header className={styles.header} role="banner" aria-label="Header">
-        <div className={styles.headerContent}>
-          <div className={styles.logoWrap}>
-            <div className={styles.logoTicket} aria-hidden="true" />
-            <div className={styles.logoText}>Eventify</div>
-          </div>
-
-          <nav className={styles.tabs} aria-label="Primary">
-            <a className={`${styles.tab} ${styles.tabActive}`} href="#">Home</a>
-            <a className={styles.tab} href="#">Events</a>
-            <a className={styles.tab} href="#">About</a>
-            <a className={styles.tab} href="#">Contact</a>
-            <span className={styles.tabUnderline} aria-hidden="true" />
-          </nav>
-
-          <div className={styles.headerActions}>
-            <button className={styles.headerBtn}>Create Event</button>
-            <button className={styles.headerBtn}>Login</button>
-            <button className={`${styles.headerBtn} ${styles.headerBtnSign}`}>Sign Up</button>
-          </div>
-        </div>
-      </header>
 
       <section className={styles.hero} aria-label="Hero">
         <h1 className={styles.heroTitle}>
@@ -302,60 +280,6 @@ export default function HomePage() {
           <button className={styles.newsletterBtn} type="submit">Subscribe</button>
         </form>
       </section>
-
-      <footer className={styles.footer} role="contentinfo">
-        <div className={styles.footerColumns}>
-          <div className="footer-col">
-            <div className={styles.footerHeading}>Company Info</div>
-            <a href="#" className={styles.footerLink}>About Us</a>
-            <a href="#" className={styles.footerLink}>Contact Us</a>
-            <a href="#" className={styles.footerLink}>Careers</a>
-            <a href="#" className={styles.footerLink}>FAQs</a>
-            <a href="#" className={styles.footerLink}>Terms of Service</a>
-            <a href="#" className={styles.footerLink}>Privacy Policy</a>
-          </div>
-          <div className="footer-col">
-            <div className={styles.footerHeading}>Categories</div>
-            <a href="#" className={styles.footerLink}>Concerts &amp; Gigs</a>
-            <a href="#" className={styles.footerLink}>Festivals &amp; Lifestyle</a>
-            <a href="#" className={styles.footerLink}>Business &amp; Networking</a>
-            <a href="#" className={styles.footerLink}>Food &amp; Drinks</a>
-            <a href="#" className={styles.footerLink}>Performing Arts</a>
-            <a href="#" className={styles.footerLink}>Sports &amp; Outdoors</a>
-            <a href="#" className={styles.footerLink}>Exhibitions</a>
-            <a href="#" className={styles.footerLink}>Workshops, Conferences &amp; Classes</a>
-          </div>
-          <div className="footer-col">
-            <div className={styles.footerHeading}>Follow Us</div>
-            <a href="#" className={styles.footerLink}>Facebook</a>
-            <a href="#" className={styles.footerLink}>Instagram</a>
-            <a href="#" className={styles.footerLink}>Twitter</a>
-            <a href="#" className={styles.footerLink}>Youtube</a>
-          </div>
-          <div className="footer-col apps">
-            <div className={styles.footerHeading}>Download The App</div>
-            <a href="#" className={styles.appRow}>
-              <span className={styles.appIcon} aria-hidden="true" />
-              <span className={styles.appText}>
-                <span className={styles.appTextSmall}>Get it on</span>
-                <span className={styles.appTextBig}>Google Play</span>
-              </span>
-            </a>
-            <a href="#" className={styles.appRow}>
-              <span className={styles.appIcon} aria-hidden="true" />
-              <span className={styles.appText}>
-                <span className={styles.appTextSmall}>Download on the</span>
-                <span className={styles.appTextBig}>App Store</span>
-              </span>
-            </a>
-          </div>
-        </div>
-        <hr className={styles.footerDivider} />
-        <div className={styles.copyright}>
-          <span className={styles.copyrightIcon} aria-hidden="true" />
-          <span>2023 Eventify. All rights reserved.</span>
-        </div>
-      </footer>
     </main>
   );
 }

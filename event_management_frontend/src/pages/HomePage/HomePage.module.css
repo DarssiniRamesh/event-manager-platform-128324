@@ -9,24 +9,11 @@
   font-family: var(--font-open-sans);
   width: 1920px;
   height: 6906px;
+  /* provide safe area under sticky header for smaller viewports */
+  padding-top: 0px;
 }
 
-/* Header */
-.header { position: absolute; left: 0; top: 0; width: 1920px; height: 75px; background: var(--color-2b293d); }
-.headerContent { position: absolute; left: 100px; right: 100px; top: 11px; height: 53px; display: flex; align-items: center; justify-content: space-between; }
-
-.logoWrap { display: flex; align-items: center; gap: 16px; height: 53.667px; }
-.logoTicket { width: 70.961px; height: 53.667px; background: var(--color-ffe047); border-radius: 6px; }
-.logoText { font-family: var(--font-lalezar); font-size: 42px; line-height: 65.814px; color: var(--color-ffe047); }
-
-.tabs { position: relative; display: flex; align-items: center; gap: 18px; }
-.tab { font-family: var(--font-montserrat); font-size: 24px; line-height: 29.256px; color: var(--color-ffffff); text-decoration: none; padding: 10px 12px; }
-.tabActive { font-weight: 600; }
-.tabUnderline { position: absolute; left: 10px; bottom: -6px; width: 76px; height: 6px; background: var(--color-ffe047); border-radius: 3px; }
-
-.headerActions { display: flex; gap: 16px; }
-.headerBtn { height: 49px; padding: 0 16px; font-family: var(--font-montserrat); font-size: 24px; line-height: 29.256px; color: var(--color-ffffff); background: transparent; border: 1px solid transparent; border-radius: 8px; }
-.headerBtnSign { background: var(--color-ffe047); color: var(--color-2b293d); border: none; border-radius: 10px; }
+/* Header styles are replaced by shared Header component */
 
 /* Hero */
 .hero { position: absolute; left: 0; top: 75px; width: 1920px; height: 578px; background: var(--color-2b293d); }
