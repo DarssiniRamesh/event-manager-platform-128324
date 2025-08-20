@@ -1,0 +1,83 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  /* Backdrop darkness aligned with Figma perception (0.60) */
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000; /* ensure above sticky header */
+  /* fade in/out */
+  opacity: 0;
+  transition: opacity 220ms ease;
+  /* prevent accidental page scroll jiggle behind backdrop */
+  will-change: opacity;
+}
+
+.backdropOpen {
+  opacity: 1;
+}
+
+.dialog {
+  /* Two-pane composition width per audit doc */
+  width: min(90vw, 1620px);
+  max-height: 92vh;
+  overflow: auto;
+  border-radius: 12px;
+  /* soft yet pronounced shadow similar to Figma */
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35), 0 2px 12px rgba(0, 0, 0, 0.18);
+
+  /* Modal surface must always be pure white regardless of global theme */
+  background: var(--c-white);
+
+  /* gracefully animate in/out */
+  opacity: 0;
+  transform: scale(0.98);
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+  will-change: transform, opacity;
+
+  /* Isolate modal subtree from global theme variables.
+     By resetting the CSS custom properties for colors here, we ensure the
+     Sign In/Up modals always map to Figma tokens exactly. */
+  --bg-primary: initial;
+  --bg-secondary: initial;
+  --text-primary: initial;
+  --text-secondary: initial;
+  --border-color: initial;
+  --button-bg: initial;
+  --button-text: initial;
+
+  /* Explicit Figma token reinforcement for descendants that might rely on
+     shared classes: */
+  --c-primary: #2b293d;
+  --c-accent: #ffe047;
+  --c-white: #ffffff;
+  --c-text: #2d2c3c;
+  --c-muted-1: #a3a3a3;
+  --c-muted-2: #828282;
+  --c-muted-3: #acacac;
+  --c-muted-4: #909090;
+  --c-gray-1: #636363;
+  --c-gray-2: #6f6f6f;
+  --c-blue-600: #1976d2;
+  --c-blue-400: #039be5;
+  --c-green-500: #4caf50;
+  --c-gray-a4: #a4a4a4;
+}
+
+/* clamp background bleed on rounded corners while scrolling */
+.dialog {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+.dialogOpen {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Scrollbar aesthetics */
+.dialog::-webkit-scrollbar { width: 10px; }
+.dialog::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); border-radius: 10px; }
+.dialog::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 10px; }

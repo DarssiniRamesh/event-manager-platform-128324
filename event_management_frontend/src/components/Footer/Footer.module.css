@@ -1,0 +1,22 @@
+.footer { width: 100%; background: var(--c-primary); color: var(--c-white); padding: 50px 0 16px; margin-top: 40px; }
+.inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+.columns { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+.heading { font-family: var(--font-montserrat); font-size: 24px; font-weight: 600; color: var(--c-white); margin-bottom: 16px; }
+.link { display: block; margin: 8px 0; color: #a9a9a9; text-decoration: none; font-family: var(--font-open-sans); font-size: 18px; line-height: 25px; }
+.link:hover { color: #ffffff; }
+
+.appRow { display: flex; align-items: center; gap: 16px; margin: 10px 0; text-decoration: none; color: inherit; }
+.appIcon { width: 50px; height: 50px; background: #ccc; border-radius: 6px; }
+.appText { display: flex; flex-direction: column; }
+.appSmall { font-size: 18px; color: #a9a9a9; }
+.appBig { font-size: 20px; color: #a9a9a9; }
+
+.hr { margin: 26px 0 0 0; border: 0; border-top: 1px solid #a9a9a9; }
+.copy { margin: 16px 0 0 0; display: flex; align-items: center; gap: 10px; color: #a9a9a9; font-size: 18px; }
+.copyIcon { width: 17px; height: 17px; border: 1px solid #a9a9a9; border-radius: 50%; position: relative; display: inline-block; }
+.copyIcon::after { content: ""; position: absolute; left: 4px; top: 4px; width: 9px; height: 9px; border: 1px solid #a9a9a9; border-radius: 50%; }
+
+@media (max-width: 900px) {
+  .columns { grid-template-columns: 1fr 1fr; gap: 24px; }
+}
