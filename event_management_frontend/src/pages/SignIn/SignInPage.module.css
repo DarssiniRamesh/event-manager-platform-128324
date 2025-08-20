@@ -70,6 +70,7 @@
   color: var(--typo-159-color);
 }
 
+/* Close button container remains; inner icon now uses shared .icon-close */
 .btnClose {
   position: absolute;
   right: 60px;
@@ -86,30 +87,8 @@
   align-items: center;
   justify-content: center;
 }
-.iconClose {
-  position: relative;
-  width: 27px;
-  height: 27px;
-  display: inline-block;
-}
-.iconClose::before,
-.iconClose::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 27px;
-  height: 3px;
-  background: var(--color-909090);
-  transform-origin: center;
-  border-radius: 2px;
-}
-.iconClose::before {
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-.iconClose::after {
-  transform: translate(-50%, -50%) rotate(-45deg);
-}
+
+/* Removed module-specific .iconClose; shared icon from common.css is used */
 
 .authActions {
   display: grid;
@@ -175,39 +154,7 @@
   font-size: 18px;
 }
 
-.iconEye {
-  position: absolute;
-  right: 1px;
-  top: 1px;
-  width: 34px;
-  height: 34px;
-}
-.iconEye::before {
-  content: "";
-  position: absolute;
-  left: 1px;
-  top: 6px;
-  width: 32px;
-  height: 22px;
-  border: 2px solid var(--color-a4a4a4);
-  border-top-left-radius: 16px 14px;
-  border-top-right-radius: 16px 14px;
-  border-bottom-left-radius: 16px 14px;
-  border-bottom-right-radius: 16px 14px;
-  box-sizing: border-box;
-}
-.iconEye::after {
-  content: "";
-  position: absolute;
-  left: 13px;
-  top: 13px;
-  width: 8px;
-  height: 8px;
-  background: var(--color-a4a4a4);
-  border-radius: 50%;
-}
-.passwordTogglePressed .iconEye::after { background: var(--color-a4a4a4); }
-/* leave structure; slash stroke provided via an extra pseudo in SignInPage.jsx if needed */
+/* Removed module-specific .iconEye; shared .icon-eye (+ .icon-eye-slash) is used */
 
 .btnPrimaryWide {
   margin-top: 20px;

@@ -47,7 +47,7 @@ export default function SignInPage() {
             aria-label="Close"
             onClick={() => authModals?.closeAuthModal?.()}
           >
-            <span className={styles.iconClose} aria-hidden="true" />
+            <span className="icon-close" aria-hidden="true" />
           </button>
         </header>
 
@@ -62,7 +62,7 @@ export default function SignInPage() {
             <span className={styles.socialText}>Login with Google</span>
           </button>
 
-          <button className={styles.socialBtn} onClick={() => toast('Login with Facebook clicked')}>
+        <button className={styles.socialBtn} onClick={() => toast('Login with Facebook clicked')}>
             <span className="icon-facebook" aria-hidden="true">
               <span className="fb-disc" />
               <span className="fb-f" />
@@ -96,7 +96,7 @@ export default function SignInPage() {
                 aria-label="Toggle password visibility"
                 aria-pressed={pwdVisible ? 'true' : 'false'}
               >
-                <span className={styles.iconEye} aria-hidden="true" />
+                <span className={`icon-eye ${pwdVisible ? 'icon-eye-slash' : ''}`} aria-hidden="true" />
               </button>
             </div>
           </div>

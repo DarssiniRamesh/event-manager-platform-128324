@@ -21,7 +21,7 @@
 
 .paneHeader { position: relative; width: 100%; padding-right: 60px; }
 .paneTitle { margin: 0 0 20px 0; font-family: var(--font-montserrat); font-size: var(--typo-159-size); font-weight: var(--typo-159-weight); line-height: var(--typo-159-line); color: var(--typo-159-color); }
-.btnClose { position: absolute; right: 60px; top: -40px; width: 54px; height: 54px; border: 3px solid var(--color-909090); border-radius: 50%; background: transparent; color: var(--color-909090); font-size: 28px; line-height: 1; }
+.btnClose { position: absolute; right: 60px; top: -40px; width: 54px; height: 54px; border: 3px solid var(--color-909090); border-radius: 50%; background: transparent; color: var(--color-909090); font-size: 0; line-height: 1; display: inline-flex; align-items: center; justify-content: center; }
 
 .authActions { display: grid; grid-template-columns: repeat(2, 346px); gap: 58px; margin-top: 19px; max-width: 750px; }
 .socialBtn { height: 74px; border: 1px solid var(--color-a3a3a3); border-radius: var(--radius-10); background: var(--color-ffffff); padding: 0 24px; gap: 20px; justify-content: flex-start; display: inline-flex; align-items: center; }
@@ -36,6 +36,8 @@
 
 .passwordField { position: relative; }
 .passwordToggle { position: absolute; right: 20px; top: 20px; width: 34px; height: 34px; border-radius: 6px; background: transparent; font-size: 18px; }
+
+/* No icon drawing here; the inner span uses shared .icon-eye and .icon-eye-slash */
 
 .btnPrimaryWide { margin-top: 20px; width: 750px; max-width: 100%; height: 74px; border-radius: var(--radius-10); background: var(--color-2b293d); color: var(--color-ffffff); font-family: var(--font-open-sans); font-size: var(--typo-164-size); font-weight: var(--typo-164-weight); line-height: var(--typo-164-line); }
 
