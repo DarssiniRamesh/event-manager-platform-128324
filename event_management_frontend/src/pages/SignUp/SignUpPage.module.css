@@ -26,8 +26,7 @@
 .authActions { display: grid; grid-template-columns: repeat(2, 346px); gap: 58px; margin-top: 19px; max-width: 750px; }
 .socialBtn { height: 74px; border: 1px solid var(--color-a3a3a3); border-radius: var(--radius-10); background: var(--color-ffffff); padding: 0 24px; gap: 20px; justify-content: flex-start; display: inline-flex; align-items: center; }
 .socialText { font-family: var(--font-open-sans); font-size: var(--typo-160-size); line-height: var(--typo-160-line); color: var(--typo-160-color); }
-.iconGoogle { width: 36px; height: 36px; background: radial-gradient(circle at 30% 50%, #fff 60%, transparent 61%), linear-gradient(0deg, #1976d2 0 50%, #4caf50 50% 100%), linear-gradient(90deg, #ff3d00 0 50%, #ffc107 50% 100%); border-radius: 4px; }
-.iconFacebook { width: 36px; height: 36px; background: var(--color-039be5); border-radius: 4px; }
+/* icons now come from shared classes in src/styles/common.css */
 
 .orSeparator { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; width: 734px; max-width: 100%; margin-top: 50px; }
 .orText { font-family: var(--font-open-sans); font-size: var(--typo-161-size); line-height: var(--typo-161-line); color: var(--typo-161-color); }

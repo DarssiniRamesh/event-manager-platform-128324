@@ -130,39 +130,7 @@
   align-items: center;
 }
 
-.iconGoogle {
-  position: relative;
-  width: 36px;
-  height: 36px;
-}
-.iconGoogleArc {
-  position: absolute;
-  inset: 3px;
-  border-radius: 50%;
-  box-sizing: border-box;
-  border: 6px solid transparent;
-}
-.gBlue { border-right-color: var(--color-1976d2); }
-.gRed { border-top-color: #ff3d00; }
-.gYellow { border-left-color: #ffc107; }
-.gGreen { border-bottom-color: var(--color-4caf50); }
-.iconGoogle::after {
-  content: "";
-  position: absolute;
-  left: 18px;
-  top: 16px;
-  width: 10px;
-  height: 4px;
-  background: var(--color-1976d2);
-  border-radius: 2px;
-}
-
-.iconFacebook { width: 36px; height: 36px; position: relative; }
-.fbDisc { position: absolute; left: -2px; top: -2px; width: 40px; height: 40px; background: var(--color-039be5); border-radius: 8px; }
-.fbF { position: absolute; left: 14px; top: 7px; width: 8px; height: 22px; }
-.fbF::before, .fbF::after { content: ""; position: absolute; background: var(--color-ffffff); border-radius: 2px; }
-.fbF::before { left: 2px; top: 2px; width: 4px; height: 20px; }
-.fbF::after { left: -4px; top: 2px; width: 12px; height: 4px; }
+/* Google and Facebook icon vector shapes provided by shared classes from common.css */
 
 .socialText {
   font-family: var(--font-open-sans);
@@ -238,20 +206,8 @@
   background: var(--color-a4a4a4);
   border-radius: 50%;
 }
-.passwordTogglePressed .iconEye::after {
-  background: var(--color-a4a4a4);
-}
-.passwordTogglePressed .iconEye::after {
-  content: "";
-  position: absolute;
-  left: 4px;
-  top: 8px;
-  width: 26px;
-  height: 2px;
-  background: var(--color-a4a4a4);
-  transform: rotate(-30deg);
-  border-radius: 1px;
-}
+.passwordTogglePressed .iconEye::after { background: var(--color-a4a4a4); }
+/* leave structure; slash stroke provided via an extra pseudo in SignInPage.jsx if needed */
 
 .btnPrimaryWide {
   margin-top: 20px;

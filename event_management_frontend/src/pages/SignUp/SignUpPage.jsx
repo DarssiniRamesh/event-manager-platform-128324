@@ -45,17 +45,27 @@ export default function SignUpPage() {
       <section className={styles.rightPane}>
         <header className={styles.paneHeader}>
           <h2 className={styles.paneTitle}>Create Account</h2>
-          <button className={styles.btnClose} aria-label="Close" onClick={() => toast('Close clicked')}>×</button>
+          <button className={styles.btnClose} aria-label="Close" onClick={() => toast('Close clicked')}>
+            <span className="icon-close" aria-hidden="true" />
+          </button>
         </header>
 
         <div className={styles.authActions}>
           <button className={styles.socialBtn} onClick={() => toast('Sign up with Google clicked')}>
-            <span className={styles.iconGoogle} aria-hidden="true" />
+            <span className="icon-google" aria-hidden="true">
+              <span className="g-arc g-blue" />
+              <span className="g-arc g-red" />
+              <span className="g-arc g-yellow" />
+              <span className="g-arc g-green" />
+            </span>
             <span className={styles.socialText}>Sign up with Google</span>
           </button>
 
           <button className={styles.socialBtn} onClick={() => toast('Sign up with Facebook clicked')}>
-            <span className={styles.iconFacebook} aria-hidden="true" />
+            <span className="icon-facebook" aria-hidden="true">
+              <span className="fb-disc" />
+              <span className="fb-f" />
+            </span>
             <span className={styles.socialText}>Sign up with Facebook</span>
           </button>
         </div>
@@ -85,8 +95,14 @@ export default function SignUpPage() {
             <label className="input-label" htmlFor="password">Password</label>
             <div className={`input-field ${styles.passwordField}`}>
               <input id="password" name="password" type={pwdVisible ? 'text' : 'password'} placeholder="Enter password" value={form.password} onChange={onChange} />
-              <button type="button" className={styles.passwordToggle} onClick={togglePwd} aria-label="Toggle password visibility" aria-pressed={pwdVisible ? 'true' : 'false'}>
-                {pwdVisible ? '🙈' : '👁️'}
+              <button
+                type="button"
+                className={`${styles.passwordToggle} ${pwdVisible ? styles.passwordTogglePressed : ''}`}
+                onClick={togglePwd}
+                aria-label="Toggle password visibility"
+                aria-pressed={pwdVisible ? 'true' : 'false'}
+              >
+                <span className={`icon-eye ${pwdVisible ? 'icon-eye-slash' : ''}`} aria-hidden="true" />
               </button>
             </div>
           </div>

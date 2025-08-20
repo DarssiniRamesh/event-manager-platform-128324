@@ -49,19 +49,19 @@ export default function SignInPage() {
 
         <div className={styles.authActions}>
           <button className={styles.socialBtn} onClick={() => toast('Login with Google clicked')}>
-            <span className={styles.iconGoogle} aria-hidden="true">
-              <span className={`${styles.iconGoogleArc} ${styles.gBlue}`} />
-              <span className={`${styles.iconGoogleArc} ${styles.gRed}`} />
-              <span className={`${styles.iconGoogleArc} ${styles.gYellow}`} />
-              <span className={`${styles.iconGoogleArc} ${styles.gGreen}`} />
+            <span className="icon-google" aria-hidden="true">
+              <span className="g-arc g-blue" />
+              <span className="g-arc g-red" />
+              <span className="g-arc g-yellow" />
+              <span className="g-arc g-green" />
             </span>
             <span className={styles.socialText}>Login with Google</span>
           </button>
 
           <button className={styles.socialBtn} onClick={() => toast('Login with Facebook clicked')}>
-            <span className={styles.iconFacebook} aria-hidden="true">
-              <span className={styles.fbDisc} />
-              <span className={styles.fbF} />
+            <span className="icon-facebook" aria-hidden="true">
+              <span className="fb-disc" />
+              <span className="fb-f" />
             </span>
             <span className={styles.socialText}>Login with Facebook</span>
           </button>

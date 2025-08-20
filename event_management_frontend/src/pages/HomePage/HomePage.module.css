@@ -6,8 +6,8 @@
   --content-max: 1618px; /* derived from figma content width */
   margin: 0 auto;
   width: 100%;
-  background: var(--color-ffffff);
-  color: var(--color-2d2c3c);
+  background: var(--c-white);
+  color: var(--c-text);
   font-family: var(--font-open-sans);
   display: flex;
   flex-direction: column;
@@ -23,13 +23,13 @@
   font-family: var(--font-montserrat);
   font-size: 40px;
   line-height: 48.76px;
-  color: var(--color-2d2c3c);
+  color: var(--c-text);
 }
 
 /* Hero: full width bar with centered inner content */
 .hero {
   width: 100%;
-  background: var(--color-2b293d);
+  background: var(--c-primary);
 }
 .heroTitle,
 .searchBar {
@@ -43,7 +43,7 @@
   font-family: var(--font-montserrat);
   font-size: 48px;
   line-height: 70px;
-  color: var(--color-ffffff);
+  color: var(--c-white);
   max-width: 1460px;
 }
 .searchBar {
@@ -56,7 +56,7 @@
 .searchInput,
 .locationDropdown {
   height: 80px; /* exact Figma height retained */
-  background: var(--color-ffffff);
+  background: var(--c-white);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -286,12 +286,12 @@
   display: inline-flex;
   align-items: center;
   padding: 0 12px;
-  background: var(--color-ffe047);
+  background: var(--c-accent);
   border-radius: 10px;
   font-family: var(--font-open-sans);
   font-size: 18px;
   font-weight: 600;
-  color: var(--color-2d2c3c);
+  color: var(--c-text);
 }
 .badgeCountry {
   position: absolute;
@@ -420,12 +420,12 @@
   width: 610px;
   height: 70px;
   border-radius: 8px;
-  background: var(--color-ffffff);
-  border: 2px solid var(--color-2b293d);
+  background: var(--c-white);
+  border: 2px solid var(--c-primary);
   font-family: var(--font-open-sans);
   font-size: 24px;
   font-weight: 600;
-  color: var(--color-2b293d);
+  color: var(--c-primary);
 }
 
 /* Online section shares grids */
@@ -475,13 +475,13 @@
   font-family: var(--font-open-sans);
   font-size: 32px;
   font-weight: 600;
-  color: var(--color-ffe047);
+  color: var(--c-accent);
 }
 .iconAddLg {
   display: inline-block;
   width: 44px;
   height: 44px;
-  border: 3px solid var(--color-ffe047);
+  border: 3px solid var(--c-accent);
   border-radius: 3px;
 }
 
@@ -522,7 +522,7 @@
   width: 327px;
   height: 80px;
   border-radius: 10px;
-  background: var(--color-ffe047);
+  background: var(--c-accent);
   border: none;
   cursor: pointer;
   display: inline-flex;
@@ -573,8 +573,8 @@
   align-items: center;
   max-width: 706px;
   height: 80px;
-  background: var(--color-ffffff);
-  border: 1px solid var(--color-2b293d);
+  background: var(--c-white);
+  border: 1px solid var(--c-primary);
   border-radius: 10px;
 }
 .newsletterInput {
@@ -590,8 +590,8 @@
 .newsletterBtn {
   width: 184px;
   height: 80px;
-  background: var(--color-2b293d);
-  color: var(--color-ffe047);
+  background: var(--c-primary);
+  color: var(--c-accent);
   font-family: var(--font-open-sans);
   font-size: 24px;
   font-weight: 700;

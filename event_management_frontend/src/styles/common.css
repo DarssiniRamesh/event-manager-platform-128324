@@ -1,101 +1,90 @@
+/* Design Tokens: Single source of truth for colors, typography, spacing, radius and shared icon primitives.
+   Note: This file supersedes any tokens found in assets/common.css. Do not import assets/common.css in the app. */
 :root {
-  --color-ffffff: #ffffff;
-  --color-2b293d: #2b293d;
-  --color-f0534f: #f0534f;
-  --color-ffe047: #ffe047;
-  --color-2d2c3c: #2d2c3c;
-  --color-a3a3a3: #a3a3a3;
-  --color-828282: #828282;
-  --color-acacac: #acacac;
-  --color-636363: #636363;
-  --color-6f6f6f: #6f6f6f;
-  --color-1976d2: #1976d2;
-  --color-039be5: #039be5;
-  --color-4caf50: #4caf50;
-  --color-909090: #909090;
-  --color-a4a4a4: #a4a4a4;
+  /* Colors */
+  --c-white: #ffffff;
+  --c-primary: #2b293d;
+  --c-accent: #ffe047;
+  --c-danger: #f0534f;
+  --c-text: #2d2c3c;
+  --c-muted-1: #a3a3a3;
+  --c-muted-2: #828282;
+  --c-muted-3: #acacac;
+  --c-muted-4: #909090;
+  --c-gray-1: #636363;
+  --c-gray-2: #6f6f6f;
 
+  /* Brand helpers */
+  --c-blue-600: #1976d2;
+  --c-blue-400: #039be5;
+  --c-green-500: #4caf50;
+  --c-gray-a4: #a4a4a4;
+
+  /* Font families */
   --font-montserrat: "Montserrat", Arial, Helvetica, sans-serif;
   --font-open-sans: "Open Sans", Arial, Helvetica, sans-serif;
   --font-lalezar: "Lalezar", cursive;
 
-  --typo-159-size: 48px;
-  --typo-159-weight: 700;
-  --typo-159-line: 58.512px;
-  --typo-159-color: var(--color-2d2c3c);
+  /* Typography scale (typo-xxx) */
+  --typo-159-size: 48px;  --typo-159-weight: 700; --typo-159-line: 58.512px; --typo-159-color: var(--c-text);
+  --typo-160-size: 20px;  --typo-160-weight: 400; --typo-160-line: 27.236px; --typo-160-color: var(--c-text);
+  --typo-161-size: 24px;  --typo-161-weight: 400; --typo-161-line: 32.684px; --typo-161-color: var(--c-muted-1);
+  --typo-162-size: 20px;  --typo-162-weight: 400; --typo-162-line: 27.236px; --typo-162-color: var(--c-gray-1);
+  --typo-163-size: 19px;  --typo-163-weight: 400; --typo-163-line: 25.875px; --typo-163-color: var(--c-muted-3);
+  --typo-164-size: 24px;  --typo-164-weight: 700; --typo-164-line: 32.684px; --typo-164-color: var(--c-white);
+  --typo-138-size: 24px;  --typo-138-weight: 400; --typo-138-line: 32.684px; --typo-138-color: var(--c-text);
+  --typo-167-size: 32px;  --typo-167-weight: 600; --typo-167-line: 43.578px;
+  --typo-165-size: 42px;  --typo-165-weight: 400; --typo-165-line: 65.814px;
+  --typo-148-size: 48px;  --typo-148-weight: 700; --typo-148-line: 70px;
+  --typo-169-size: 20px;  --typo-169-weight: 400; --typo-169-line: 27.236px;
 
-  --typo-160-size: 20px;
-  --typo-160-weight: 400;
-  --typo-160-line: 27.236px;
-  --typo-160-color: var(--color-2d2c3c);
-
-  --typo-161-size: 24px;
-  --typo-161-weight: 400;
-  --typo-161-line: 32.684px;
-  --typo-161-color: var(--color-a3a3a3);
-
-  --typo-162-size: 20px;
-  --typo-162-weight: 400;
-  --typo-162-line: 27.236px;
-  --typo-162-color: var(--color-636363);
-
-  --typo-163-size: 19px;
-  --typo-163-weight: 400;
-  --typo-163-line: 25.875px;
-  --typo-163-color: var(--color-acacac);
-
-  --typo-164-size: 24px;
-  --typo-164-weight: 700;
-  --typo-164-line: 32.684px;
-  --typo-164-color: var(--color-ffffff);
-
-  --typo-138-size: 24px;
-  --typo-138-weight: 400;
-  --typo-138-line: 32.684px;
-  --typo-138-color: var(--color-2d2c3c);
-
-  --typo-167-size: 32px;
-  --typo-167-weight: 600;
-  --typo-167-line: 43.578px;
-
-  --typo-165-size: 42px;
-  --typo-165-weight: 400;
-  --typo-165-line: 65.814px;
-
-  --typo-148-size: 48px;
-  --typo-148-weight: 700;
-  --typo-148-line: 70px;
-
-  --typo-169-size: 20px;
-  --typo-169-weight: 400;
-  --typo-169-line: 27.236px;
-
+  /* Radii */
   --radius-10: 10px;
   --radius-8: 8px;
   --radius-6: 6px;
 
-  /* Removed rigid canvas sizing to enable responsive layouts */
+  /* Spacing (common) */
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-14: 14px;
+  --space-16: 16px;
+  --space-18: 18px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-28: 28px;
+  --space-32: 32px;
+  --space-36: 36px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-56: 56px;
+  --space-60: 60px;
+  --space-64: 64px;
+  --space-70: 70px;
+  --space-74: 74px;
 }
 
+/* Reset/base */
 * { box-sizing: border-box; }
 
+/* Horizontal rule utility used across pages */
 .hr-line {
   border: 0;
-  border-top: 1px solid var(--color-6f6f6f);
+  border-top: 1px solid var(--c-gray-2);
   height: 0;
 }
 
+/* Input primitives (shared) */
 .input-field {
   width: 100%;
   height: 74px;
-  border: 1px solid var(--color-828282);
+  border: 1px solid var(--c-muted-2);
   border-radius: var(--radius-10);
-  background: var(--color-ffffff);
+  background: var(--c-white);
   display: flex;
   align-items: center;
-  padding: 0 26px;
+  padding: 0 var(--space-24);
 }
-
 .input-field input {
   width: 100%;
   border: none;
@@ -105,17 +94,131 @@
   line-height: var(--typo-163-line);
   color: var(--typo-160-color);
 }
-
 .input-label {
   font-family: var(--font-open-sans);
   font-size: var(--typo-162-size);
   line-height: var(--typo-162-line);
   color: var(--typo-162-color);
-  margin-bottom: 10px;
+  margin-bottom: var(--space-10);
 }
 
-/* Focus */
+/* Accessibility focus */
 a:focus, button:focus, input:focus {
-  outline: 2px solid var(--color-ffe047);
+  outline: 2px solid var(--c-accent);
   outline-offset: 2px;
 }
+
+/* Shared vector icon primitives to enforce parity (no emojis):
+   - .icon-eye, .icon-close, .icon-google, .icon-facebook, etc. */
+.icon-eye {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+}
+.icon-eye::before {
+  content: "";
+  position: absolute;
+  left: 1px; top: 6px;
+  width: 32px; height: 22px;
+  border: 2px solid var(--c-gray-a4);
+  border-top-left-radius: 16px 14px;
+  border-top-right-radius: 16px 14px;
+  border-bottom-left-radius: 16px 14px;
+  border-bottom-right-radius: 16px 14px;
+  box-sizing: border-box;
+}
+.icon-eye::after {
+  content: "";
+  position: absolute;
+  left: 13px; top: 13px;
+  width: 8px; height: 8px;
+  background: var(--c-gray-a4);
+  border-radius: 50%;
+}
+.icon-eye-slash::after {
+  /* slash stroke for visible state (compose with .icon-eye) */
+  content: "";
+  position: absolute;
+  left: 4px; top: 8px;
+  width: 26px; height: 2px;
+  background: var(--c-gray-a4);
+  transform: rotate(-30deg);
+  border-radius: 1px;
+}
+
+/* Close "X" icon primitive */
+.icon-close {
+  position: relative;
+  display: inline-block;
+  width: 27px;
+  height: 27px;
+}
+.icon-close::before,
+.icon-close::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 27px; height: 3px;
+  background: var(--c-muted-4);
+  transform-origin: center;
+  border-radius: 2px;
+}
+.icon-close::before { transform: translate(-50%, -50%) rotate(45deg); }
+.icon-close::after  { transform: translate(-50%, -50%) rotate(-45deg); }
+
+/* Google "G" icon (4 arcs) */
+.icon-google {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+}
+.icon-google .g-arc {
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 6px solid transparent;
+}
+.icon-google .g-blue   { border-right-color: var(--c-blue-600); }
+.icon-google .g-red    { border-top-color: #ff3d00; }
+.icon-google .g-yellow { border-left-color: #ffc107; }
+.icon-google .g-green  { border-bottom-color: var(--c-green-500); }
+.icon-google::after {
+  content: "";
+  position: absolute;
+  left: 18px; top: 16px;
+  width: 10px; height: 4px;
+  background: var(--c-blue-600);
+  border-radius: 2px;
+}
+
+/* Facebook icon (rounded square with an 'f') */
+.icon-facebook {
+  width: 36px;
+  height: 36px;
+  position: relative;
+  display: inline-block;
+}
+.icon-facebook .fb-disc {
+  position: absolute;
+  left: -2px; top: -2px;
+  width: 40px; height: 40px;
+  background: var(--c-blue-400);
+  border-radius: 8px;
+}
+.icon-facebook .fb-f {
+  position: absolute;
+  left: 14px; top: 7px;
+  width: 8px; height: 22px;
+}
+.icon-facebook .fb-f::before,
+.icon-facebook .fb-f::after {
+  content: "";
+  position: absolute;
+  background: var(--c-white);
+  border-radius: 2px;
+}
+.icon-facebook .fb-f::before { left: 2px; top: 2px; width: 4px; height: 20px; }
+.icon-facebook .fb-f::after  { left: -4px; top: 2px; width: 12px; height: 4px; }

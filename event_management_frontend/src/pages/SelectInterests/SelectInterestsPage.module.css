@@ -17,7 +17,7 @@
   height: 50px;
   border-radius: 10px;
   background: transparent;
-  border: 3px solid var(--color-2b293d);
+  border: 3px solid var(--c-primary);
 }
 .backIcon { position: relative; display: inline-block; width: 28px; height: 28px; }
 .backIcon::before, .backIcon::after {
@@ -110,7 +110,7 @@
 .hrLocal {
   margin: 22px 0 0 0;
   border: 0;
-  border-top: 1px solid var(--color-6f6f6f);
+  border-top: 1px solid var(--c-gray-2);
 }
 
 /* Save button */
@@ -125,8 +125,8 @@
   width: 330px;
   height: 74px;
   border-radius: 10px;
-  background: var(--color-2b293d);
-  color: var(--color-ffffff);
+  background: var(--c-primary);
+  color: var(--c-white);
   border: none;
   font-family: var(--font-open-sans);
   font-size: var(--typo-164-size);

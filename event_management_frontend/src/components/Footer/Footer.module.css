@@ -1,8 +1,8 @@
-.footer { width: 100%; background: var(--color-2b293d); color: var(--color-ffffff); padding: 50px 0 16px; margin-top: 40px; }
+.footer { width: 100%; background: var(--c-primary); color: var(--c-white); padding: 50px 0 16px; margin-top: 40px; }
 .inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
 .columns { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
-.heading { font-family: var(--font-montserrat); font-size: 24px; font-weight: 600; color: var(--color-ffffff); margin-bottom: 16px; }
+.heading { font-family: var(--font-montserrat); font-size: 24px; font-weight: 600; color: var(--c-white); margin-bottom: 16px; }
 .link { display: block; margin: 8px 0; color: #a9a9a9; text-decoration: none; font-family: var(--font-open-sans); font-size: 18px; line-height: 25px; }
 .link:hover { color: #ffffff; }
 
