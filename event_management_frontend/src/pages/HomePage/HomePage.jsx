@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useMemo, useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './HomePage.module.css';
 import '../../styles/common.css';
 
@@ -37,6 +38,8 @@ export default function HomePage() {
     // eslint-disable-next-line no-console
     console.log(search ? `Subscribed: ${search}` : 'Subscribe clicked');
   };
+
+  const navigate = useNavigate();
 
   return (
     <main className={styles.homePage} role="main" aria-label="Home Page">
@@ -216,10 +219,10 @@ export default function HomePage() {
         <p className={styles.sectionPersonalizedSub}>
           Get event suggestions tailored to your interests! Don't let your favorite events slip away.
         </p>
-        <button className={styles.getStarted} onClick={() => console.log('Get Started')}>
+        <Link to="/select-interests" className={styles.getStarted} role="button" aria-label="Get Started: Select your interests">
           <span className={styles.getStartedText}>Get Started</span>
           <span className={styles.iconAddLg} aria-hidden="true" />
-        </button>
+        </Link>
       </section>
 
       <section className={`${styles.section} ${styles.sectionWorld}`} aria-labelledby="heading-world">
@@ -259,10 +262,10 @@ export default function HomePage() {
       <section className={styles.sectionCreateCta} aria-labelledby="heading-create-cta">
         <h2 id="heading-create-cta" className={styles.ctaTitle}>Create an event with Eventify</h2>
         <p className={styles.ctaSubtitle}>Got a show, event, activity or a great experience? Partner with us &amp; get listed on Eventify</p>
-        <button className={styles.createEventLarge} onClick={() => console.log('Create Event clicked')}>
+        <Link to="/create-event" className={styles.createEventLarge} role="button" aria-label="Create Event">
           <span className={styles.iconAddLg} aria-hidden="true" />
           <span className="label">Create Event</span>
-        </button>
+        </Link>
       </section>
 
       <section className={styles.sectionNewsletter} aria-labelledby="heading-newsletter">

@@ -16,6 +16,10 @@ import styles from './Header.module.css';
  */
 // PUBLIC_INTERFACE
 export default function Header() {
+  // Helper to ensure aria-current="page" only on active links
+  const linkClass = ({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`;
+  const ariaCurrent = ({ isActive }) => (isActive ? 'page' : undefined);
+
   return (
     <header className={styles.header} role="banner" aria-label="Header">
       <div className={styles.inner}>
@@ -25,29 +29,29 @@ export default function Header() {
         </Link>
 
         <nav className={styles.nav} aria-label="Primary">
-          <NavLink to="/" end className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`} aria-current={({ isActive }) => (isActive ? 'page' : undefined)}>
+          <NavLink to="/" end className={linkClass} aria-current={ariaCurrent}>
             Home
           </NavLink>
-          <NavLink to="/events" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>
+          <NavLink to="/events" className={linkClass} aria-current={ariaCurrent}>
             Events
           </NavLink>
-          <NavLink to="/about" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>
+          <NavLink to="/about" className={linkClass} aria-current={ariaCurrent}>
             About
           </NavLink>
-          <NavLink to="/contact" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}>
+          <NavLink to="/contact" className={linkClass} aria-current={ariaCurrent}>
             Contact
           </NavLink>
           <span className={styles.underline} aria-hidden="true" />
         </nav>
 
         <div className={styles.actions}>
-          <NavLink to="/create-event" className={`${styles.btn} ${styles.btnLink}`}>
+          <NavLink to="/create-event" className={`${styles.btn} ${styles.btnLink}`} aria-current={ariaCurrent}>
             Create Event
           </NavLink>
-          <NavLink to="/sign-in" className={`${styles.btn} ${styles.btnLink}`}>
+          <NavLink to="/sign-in" className={`${styles.btn} ${styles.btnLink}`} aria-current={ariaCurrent}>
             Login
           </NavLink>
-          <NavLink to="/sign-up" className={`${styles.btn} ${styles.btnPrimary}`}>
+          <NavLink to="/sign-up" className={`${styles.btn} ${styles.btnPrimary}`} aria-current={ariaCurrent}>
             Sign Up
           </NavLink>
         </div>
