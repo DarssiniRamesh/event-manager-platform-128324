@@ -74,8 +74,7 @@
   --radius-8: 8px;
   --radius-6: 6px;
 
-  --page-width: 1920px;
-  --page-height: 1080px;
+  /* Removed rigid canvas sizing to enable responsive layouts */
 }
 
 * { box-sizing: border-box; }
