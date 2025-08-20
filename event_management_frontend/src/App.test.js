@@ -1,8 +1,15 @@
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('renders navigation links', () => {
+  render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+  );
+  expect(screen.getByText(/Home/i)).toBeInTheDocument();
+  expect(screen.getByText(/Sign In/i)).toBeInTheDocument();
+  expect(screen.getByText(/Sign Up/i)).toBeInTheDocument();
+  expect(screen.getByText(/Select Interests/i)).toBeInTheDocument();
 });

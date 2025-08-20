@@ -27,6 +27,16 @@ Launches the test runner in interactive watch mode.
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
+## Project Structure Clarification
+
+- The React application source lives under `src/`.
+- Screens are placed in `src/pages/<ScreenName>/` and each page keeps:
+  - `<ScreenName>.jsx` (component implementation)
+  - `index.js` (re-export)
+  - any `*.module.css` used by the component
+- Duplicate wrapper files like `<ScreenName>.js` or `.map` artifacts are removed to avoid overwrites.
+- The `assets/` directory at the repository root contains reference-only HTML/CSS extracts from design tools (Figma). These files are NOT imported by the React app and should not be modified to implement features. Use them only as visual references.
+
 ## Customization
 
 ### Colors
