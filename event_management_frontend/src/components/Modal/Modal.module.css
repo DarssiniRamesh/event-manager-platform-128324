@@ -1,20 +1,40 @@
 .backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.6); /* slightly darker to match Figma perception */
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000; /* above header */
+
+  /* Transitions for fade in/out */
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.backdropOpen {
+  opacity: 1;
 }
 
 .dialog {
-  width: min(100%, 1200px);
+  width: min(90vw, 1620px); /* wider container per Figma intent */
   max-height: 92vh;
   overflow: auto;
   border-radius: 12px;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
   background: transparent; /* content provides its own background; SignIn/Up have split panes */
+
+  /* Enter/exit animation (scale + fade) */
+  opacity: 0;
+  transform: scale(0.98);
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+.dialogOpen {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* Scrollbar aesthetics */

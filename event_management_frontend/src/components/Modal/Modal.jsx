@@ -96,19 +96,21 @@ export default function Modal({
 
   const dialog = (
     <div
-      className={styles.backdrop}
+      className={`${styles.backdrop} ${styles.backdropOpen}`}
       role="presentation"
       onMouseDown={onBackdropClick}
       aria-hidden="true"
+      data-open="true"
     >
       <div
-        className={styles.dialog}
+        className={`${styles.dialog} ${styles.dialogOpen}`}
         role="dialog"
         aria-modal="true"
         aria-labelledby={ariaLabelledBy}
         aria-describedby={ariaDescribedBy}
         ref={contentRef}
         tabIndex={-1}
+        data-open="true"
       >
         {children}
       </div>
