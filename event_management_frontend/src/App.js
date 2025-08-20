@@ -11,6 +11,7 @@ import Footer from './components/Footer/Footer';
 /**
  * Root application with theme toggle and router.
  * Integrates shared Header and Footer across pages and uses React Router for navigation.
+ * All pages should omit their own Header/Footer to prevent duplication.
  */
 // PUBLIC_INTERFACE
 function App() {

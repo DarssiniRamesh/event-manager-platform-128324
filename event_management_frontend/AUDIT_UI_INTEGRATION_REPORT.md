@@ -33,8 +33,8 @@ This document captures the audit of the current React codebase against the Figma
 
 ## Remediation Plan (Prioritized)
 1. Shared Layout
-   - Create `src/components/Header.jsx` and `src/components/Footer.jsx` with CSS Modules.
-   - Replace per-page header/footer with shared components.
+   - Create `src/components/Header/Header.jsx` and `src/components/Footer/Footer.jsx` with CSS Modules.
+   - Replace per-page header/footer with shared components rendered from `App.js`. All pages MUST NOT render their own header/footer.
 
 2. Responsive Layout
    - Replace `width: 1920px`/absolute blocks with:

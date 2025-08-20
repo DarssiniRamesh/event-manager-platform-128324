@@ -24,6 +24,9 @@ export default function SignInPage() {
     toast('Login clicked');
   };
 
+  // This page renders only its main content.
+  // Header/Footer are shared and rendered by App.js
+
   return (
     <main className={styles.screen} aria-label="Sign In Page">
       <section className={styles.leftPane}>
@@ -58,7 +61,7 @@ export default function SignInPage() {
             <span className={styles.socialText}>Login with Google</span>
           </button>
 
-          <button className={styles.socialBtn} onClick={() => toast('Login with Facebook clicked')}>
+        <button className={styles.socialBtn} onClick={() => toast('Login with Facebook clicked')}>
             <span className="icon-facebook" aria-hidden="true">
               <span className="fb-disc" />
               <span className="fb-f" />

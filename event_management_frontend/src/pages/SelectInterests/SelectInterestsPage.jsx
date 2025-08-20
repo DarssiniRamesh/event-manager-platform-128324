@@ -57,9 +57,11 @@ export default function SelectInterestsPage() {
     console.log('Saved interests: ' + (picks.join(', ') || 'None'));
   };
 
+  // This page renders only its main content.
+  // Header/Footer are shared and rendered by App.js
+
   return (
     <main className={styles.screen} aria-label="Select Interests">
-
       <button className={styles.backBtn} aria-label="Go back" onClick={() => navigate(-1)}>
         <span className={styles.backIcon} aria-hidden="true" />
       </button>

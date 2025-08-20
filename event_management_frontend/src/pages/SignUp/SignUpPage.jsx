@@ -27,6 +27,9 @@ export default function SignUpPage() {
     toast('Create Account clicked');
   };
 
+  // This page renders only its main content.
+  // Header/Footer are shared and rendered by App.js
+
   return (
     <main className={styles.screen} aria-label="Sign Up">
       <section className={styles.leftPane}>
