@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styles from './SignUpPage.module.css';
 import '../../styles/common.css';
+import { useAuthModals } from '../../App';
 
 /**
  * SignUp screen from extraction, with:
  * - Password visibility toggle
  * - Social buttons console logs
  * - Create Account button console log
- * - Link to Sign In via router
+ * - Link to Sign In switches modal
  */
 // PUBLIC_INTERFACE
 export default function SignUpPage() {
   const [pwdVisible, setPwdVisible] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', password: '' });
-  const navigate = useNavigate();
+  const authModals = useAuthModals();
 
   const togglePwd = () => setPwdVisible((v) => !v);
 
@@ -26,9 +26,6 @@ export default function SignUpPage() {
     e.preventDefault();
     toast('Create Account clicked');
   };
-
-  // This page renders only its main content.
-  // Header/Footer are shared and rendered by App.js
 
   return (
     <main className={styles.screen} aria-label="Sign Up">
@@ -48,7 +45,11 @@ export default function SignUpPage() {
       <section className={styles.rightPane}>
         <header className={styles.paneHeader}>
           <h2 className={styles.paneTitle}>Create Account</h2>
-          <button className={styles.btnClose} aria-label="Close" onClick={() => toast('Close clicked')}>
+          <button
+            className={styles.btnClose}
+            aria-label="Close"
+            onClick={() => authModals?.closeAuthModal?.()}
+          >
             <span className="icon-close" aria-hidden="true" />
           </button>
         </header>
@@ -115,7 +116,15 @@ export default function SignUpPage() {
 
         <div className={styles.loginRow}>
           <span className={styles.loginText}>Already have an account?</span>
-          <button id="btn-login" className={styles.loginLink} onClick={() => navigate('/sign-in')}>Log In</button>
+          <button
+            id="btn-login"
+            className={styles.loginLink}
+            onClick={() => {
+              authModals?.openSignIn?.();
+            }}
+          >
+            Log In
+          </button>
         </div>
       </section>
     </main>

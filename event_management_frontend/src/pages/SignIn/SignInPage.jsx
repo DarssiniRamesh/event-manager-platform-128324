@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styles from './SignInPage.module.css';
 import '../../styles/common.css';
+import { useAuthModals } from '../../App';
 
 /**
  * SignIn screen with:
  * - Password visibility toggle
  * - Social buttons and submit console logs
- * - Link to Sign Up via router
+ * - Link to Sign Up switches modal
  */
 // PUBLIC_INTERFACE
 export default function SignInPage() {
   const [pwdVisible, setPwdVisible] = useState(false);
   const [form, setForm] = useState({ email: '', password: '' });
-  const navigate = useNavigate();
+  const authModals = useAuthModals();
 
   const togglePwd = () => setPwdVisible((v) => !v);
   const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
@@ -23,9 +23,6 @@ export default function SignInPage() {
     e.preventDefault();
     toast('Login clicked');
   };
-
-  // This page renders only its main content.
-  // Header/Footer are shared and rendered by App.js
 
   return (
     <main className={styles.screen} aria-label="Sign In Page">
@@ -45,7 +42,11 @@ export default function SignInPage() {
       <section className={styles.rightPane}>
         <header className={styles.paneHeader}>
           <h2 className={styles.paneTitle}>Login</h2>
-          <button className={styles.btnClose} aria-label="Close" onClick={() => toast('Close clicked')}>
+          <button
+            className={styles.btnClose}
+            aria-label="Close"
+            onClick={() => authModals?.closeAuthModal?.()}
+          >
             <span className={styles.iconClose} aria-hidden="true" />
           </button>
         </header>
@@ -61,7 +62,7 @@ export default function SignInPage() {
             <span className={styles.socialText}>Login with Google</span>
           </button>
 
-        <button className={styles.socialBtn} onClick={() => toast('Login with Facebook clicked')}>
+          <button className={styles.socialBtn} onClick={() => toast('Login with Facebook clicked')}>
             <span className="icon-facebook" aria-hidden="true">
               <span className="fb-disc" />
               <span className="fb-f" />
@@ -105,7 +106,15 @@ export default function SignInPage() {
 
         <div className={styles.signupRow}>
           <span className={styles.signupText}>Don’t have an account?</span>
-          <button id="btn-signup" className={styles.signupLink} onClick={() => navigate('/sign-up')}>Sign up</button>
+          <button
+            id="btn-signup"
+            className={styles.signupLink}
+            onClick={() => {
+              authModals?.openSignUp?.();
+            }}
+          >
+            Sign up
+          </button>
         </div>
       </section>
     </main>

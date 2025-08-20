@@ -11,7 +11,7 @@
 .nav:has(.active) .underline { display: block; }
 
 .actions { display: flex; gap: 12px; }
-.btn { height: 42px; padding: 0 14px; font-family: var(--font-montserrat); font-size: 16px; line-height: 24px; color: var(--c-white); background: transparent; border: 1px solid transparent; border-radius: 8px; cursor: pointer; }
+.btn { height: 42px; padding: 0 14px; font-family: var(--font-montserrat); font-size: 16px; line-height: 24px; color: var(--c-white); background: transparent; border: 1px solid transparent; border-radius: 8px; cursor: pointer; text-decoration: none; }
 .btnPrimary { background: var(--c-accent); color: var(--c-primary); border: none; border-radius: 10px; }
 .btnLink { color: var(--c-white); text-decoration: none; display: inline-flex; align-items: center; }
 

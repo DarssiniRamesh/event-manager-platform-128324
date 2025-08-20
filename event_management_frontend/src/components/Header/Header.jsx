@@ -1,21 +1,17 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
+import { useAuthModals } from '../../App';
 
 /**
  * Shared Header component that renders the brand, primary navigation tabs,
  * and action buttons. Uses NavLink to highlight active route.
- * Navigation targets:
- *  - "/" (Home)
- *  - "/events" (placeholder)
- *  - "/about" (placeholder)
- *  - "/contact" (placeholder)
- *  - "/create-event" (placeholder)
- *  - "/sign-in"
- *  - "/sign-up"
+ * Login and Sign Up open modal dialogs instead of navigating to routes.
  */
 // PUBLIC_INTERFACE
 export default function Header() {
+  const authModals = useAuthModals();
+
   // Helper to ensure aria-current="page" only on active links
   const linkClass = ({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`;
   const ariaCurrent = ({ isActive }) => (isActive ? 'page' : undefined);
@@ -48,12 +44,24 @@ export default function Header() {
           <NavLink to="/create-event" className={`${styles.btn} ${styles.btnLink}`} aria-current={ariaCurrent}>
             Create Event
           </NavLink>
-          <NavLink to="/sign-in" className={`${styles.btn} ${styles.btnLink}`} aria-current={ariaCurrent}>
+          <button
+            type="button"
+            className={`${styles.btn} ${styles.btnLink}`}
+            onClick={() => authModals?.openSignIn?.()}
+            aria-haspopup="dialog"
+            aria-controls="auth-signin-title"
+          >
             Login
-          </NavLink>
-          <NavLink to="/sign-up" className={`${styles.btn} ${styles.btnPrimary}`} aria-current={ariaCurrent}>
+          </button>
+          <button
+            type="button"
+            className={`${styles.btn} ${styles.btnPrimary}`}
+            onClick={() => authModals?.openSignUp?.()}
+            aria-haspopup="dialog"
+            aria-controls="auth-signup-title"
+          >
             Sign Up
-          </NavLink>
+          </button>
         </div>
       </div>
     </header>

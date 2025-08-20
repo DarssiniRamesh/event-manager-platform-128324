@@ -12,10 +12,10 @@ test('renders integrated header navigation and Home page content', () => {
   expect(screen.getByRole('link', { name: /Events/i })).toBeInTheDocument();
   expect(screen.getByRole('link', { name: /About/i })).toBeInTheDocument();
   expect(screen.getByRole('link', { name: /Contact/i })).toBeInTheDocument();
-  // Action buttons
+  // Action buttons/links
   expect(screen.getByRole('link', { name: /Create Event/i })).toBeInTheDocument();
-  expect(screen.getByRole('link', { name: /Login/i })).toBeInTheDocument();
-  expect(screen.getByRole('link', { name: /Sign Up/i })).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: /Login/i })).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: /Sign Up/i })).toBeInTheDocument();
 
   // Confirm at least one element from Home page is rendered
   expect(
@@ -24,6 +24,4 @@ test('renders integrated header navigation and Home page content', () => {
       exact: false,
     })
   ).toBeInTheDocument();
-
-  // No "learn react" boilerplate expectation anymore.
 });
